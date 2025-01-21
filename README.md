@@ -14,6 +14,8 @@ setupFirstFile(newfile) - Creates a file that holds a strategy based on a very b
 
 mutateProcess(oldfile,newfile,number) - This is the main wrapper function for the mutation process. It takes in the file oldfile that contains a new strategy, a string newfil which will be the name of the generated string, and number, which chooses the number of candidate mutations to test. The script generates DECKTEST instances of shuffled decks of cards for the game. The first mutated strategy plays against the original using each of those decks, and the total score differential is calculated to determine a winner. The second mutated strategy plays against the winner of the first set of games, etc. until the "last mutation standing" is outputted into the file newfile.
 
+repeatMutate(filename,startnum,endnum,number) - runs mutateProcess repeatedly. It starts with a strategy defined in a file named filenamex.txt, where x = startnum. At each generation of the algorithm, it generates "number" strats mutated from the original strategy and attempts to find the strongest player among them. This file is then written into filenamey.txt, where y = x+1. The process ends at filenamez.txt, where z = endnum.
+
 writeStratToFile/writeFileToStrat - these convert files containing a strategy to an array in memory containing that strategy, and vice versa.
 
 NTGameHumanStrat(strat1) - this lets you play against a computer player whose decisions are governed by strat1. The prompts in the console should be answered with "y" to take the given card, or "n" to place a chip on the card.The game state should be outputted at each relevant point.
